@@ -10,9 +10,21 @@ const dummyContacts = [
 
 function ContactList() {
 
-  const [contacts, setContacts] = useState(dummyContacts)
+  const [contacts, setContacts] = useState()
 
-  console.log("Contacts: ", contacts)
+  useEffect(() => {
+    // fetch data and set it into state using setContacts
+    async function fetchContacts() {
+      try {
+        // fetch using https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }, [])
+
+    fetchContacts();
+  // console.log("Contacts: ", contacts)
 
 
   return ( 
