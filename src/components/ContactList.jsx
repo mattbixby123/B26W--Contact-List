@@ -1,6 +1,11 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
-function ContactList() {
+
+
+function ContactList({ contacts }) {
+
+
   return ( 
     <table>
       <thead>
