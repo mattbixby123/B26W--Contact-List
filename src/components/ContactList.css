@@ -1,0 +1,41 @@
+/* ContactList.css */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2b5b5;
+}
+
+tr:hover {
+  background-color: #625d5d; /* Change the hover color for other rows */
+}
+
+th[colSpan="3"] {
+  text-align: center;
+  color: #625d5d;
+}
+
+/* Define widths for columns */
+td {
+  width: 33.33%; /* Each column takes up one-third of the table width */
+}
+
+/* Center and style the header rows */
+thead tr td {
+  text-align: center;
+  background-color: #f2b5b5; /* Set background color */
+  color: #625d5d; /* Set font color */
+}
+
+/* Remove hover effect for header rows */
+thead tr:hover {
+  background-color: #f2b5b5; /* Ensure no hover effect */
+}
