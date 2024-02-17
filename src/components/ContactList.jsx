@@ -8,14 +8,13 @@ const dummyContacts = [
   { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
 ];
 
-function ContactList() {
+function ContactList({ setSelectedContactId }) {
 
-  const [contacts, setContacts] = useState(dummyContacts)
+  const [contacts, setContacts] = useState(dummyContacts);
 
   useEffect(() => {
     async function fetchContacts() {
       try {
-        //my fetch logic will go here
         const response = await fetch(
           "https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users"
         )
@@ -27,7 +26,14 @@ function ContactList() {
     }
     fetchContacts()
   }, []);
+
+
   // console.log("Contacts: ", contacts)
+
+  const handleRowClick = (contactId) => {
+    setSelectedContactId(contactId);
+  };
+
   return ( 
     <table>
       <thead>
@@ -42,7 +48,11 @@ function ContactList() {
           <td>Phone</td>
         </tr>
         {contacts.map((contact) => {
-          return <ContactRow key={contact.id} contact={contact} />;
+          return (
+            <tr key={contact.id} onClick={() => handleRowClick(contact.id)}>
+              <ContactRow contact={contact} />
+            </tr>
+          );
         })}
       </tbody>
     </table>
