@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import ContactRow from './ContactRow';
+import './ContactList.css';
 
 const dummyContacts = [
   { id: 1, name: "R2-D2", phone: "222-222-2222", email: "r2d2@droids.com" },
@@ -40,23 +41,23 @@ function ContactList({ setSelectedContactId }) {
         <tr>
           <th colSpan="3">Contact List</th>
         </tr>
-      </thead>
-      <tbody>
         <tr>
           <td>Name</td>
           <td>Email</td>
           <td>Phone</td>
         </tr>
-        {contacts.map((contact) => {
-          return (
-            <tr key={contact.id} onClick={() => handleRowClick(contact.id)}>
-              <ContactRow contact={contact} />
-            </tr>
-          );
-        })}
+      </thead>
+      <tbody>
+        {contacts.map((contact) => (
+          <tr key={contact.id} onClick={() => handleRowClick(contact.id)}>
+            <td>{contact.name}</td>
+            <td>{contact.email}</td>
+            <td>{contact.phone}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
-); 
+  ); 
 }
 
 export default ContactList;
