@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function SelectedContact({ selectedContactId }) {
+function SelectedContact({ selectedContactId, setSelectedContactId }) {
   const [selectedContact, setSelectedContact] = useState(null);
 
   useEffect(() => {
@@ -20,9 +20,16 @@ function SelectedContact({ selectedContactId }) {
     }
   }, [selectedContactId]);
 
+  // Function to handle navigation back to the list view
+  const handleBackToList = () => {
+    setSelectedContactId(null); // Navigate back to the list view
+  };
+
   return (
     <div>
       <h2>Selected Contact Details</h2>
+      {/* Button to navigate back to the list view */}
+      <button onClick={handleBackToList}>Back to List</button>
       {selectedContact ? (
         <div>
           <p>Name: {selectedContact.name}</p>
