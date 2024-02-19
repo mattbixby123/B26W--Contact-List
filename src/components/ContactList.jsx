@@ -17,7 +17,7 @@ function ContactList() {
     async function fetchContacts() {
       try {
         const response = await fetch('https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users');
-        const data = response.json();
+        const data = await response.json();
         setContacts(data);
         // fetch using https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users
       } catch (error) {
@@ -46,9 +46,10 @@ function ContactList() {
           <td>Phone</td>
         </tr>
         {
-          contacts.map((contact) => {
+          // make sure contacts isn't undefined
+          contacts && (contacts.map((contact) => {
             return <ContactRow key={contact.id} contact={contact} />;
-          })
+          }))
         }
       </tbody>
     </table>
