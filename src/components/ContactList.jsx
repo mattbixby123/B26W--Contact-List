@@ -16,14 +16,19 @@ function ContactList() {
     // fetch data and set it into state using setContacts
     async function fetchContacts() {
       try {
+        const response = await fetch('https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users');
+        const data = response.json();
+        setContacts(data);
         // fetch using https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users
       } catch (error) {
         console.error(error);
       }
     }
-  }, [])
 
     fetchContacts();
+
+  }, [])
+
   // console.log("Contacts: ", contacts)
 
 
